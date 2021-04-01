@@ -30,7 +30,7 @@ def insert():
 
 @app.route('/events')
 def show_events():
-    return render_template('events', events=Event.objects)
+    return render_template('events.html', events=Event.objects)
 
 
 if __name__ == "__main__":
