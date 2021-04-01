@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add an Event</title>
+{% endblock %}
+
+{% block body %}
+<body>
+    <form method="POST" action="/add">
+        <input autofocus placeholder="EventName" name="name" type="text" required />
+        <input type="date" placeholder="myDate" name="date">
+        <input placeholder="Time" name="time" type="time"/>
+        <input placeholder="Length" name="length" type="number" required/>
+        <input placeholder="Location" name="location" type="text"/>
+        <input placeholder="Guests" name="guests" type="text"/>
+        <input type="submit"/>
+    </form>
+
+<br>
+
+<button type="button" onclick="location.href='/events'"> See all events </button>
+{% endblock %}

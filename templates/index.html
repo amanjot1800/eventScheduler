@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Event</title>
-    </head>
-    <body>
-        <form method="POST" action="/insert">
-            <input autofocus placeholder="EventName" name="name" type="text" required />
-            <input type="date" placeholder="myDate" name="date">
-            <input placeholder="Time" name="time" type="datetime"/>
-            <input placeholder="Length" name="length" type="number" required/>
-            <input placeholder="Location" name="location" type="text"/>
-            <input placeholder="Guests" name="guests" type="text"/>
-            <input type="submit"/>
-        </form>
+{% extends 'base.html' %}
+{% block head %}
+<title>Event Scheduler</title>
+{% endblock %}
 
-    <br>
+{% block body %}
 
-    <button type="button" onclick="location.href='/events'"> See all events </button>
-
-    </body>
-</html>
+{% endblock %}
