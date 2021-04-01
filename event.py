@@ -1,5 +1,4 @@
 import mongoengine as db
-import datetime
 
 
 class Event(db.Document):
