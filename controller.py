@@ -11,3 +11,9 @@ def create_event(name, date, time, length, location, guests):
     event.location = location
     event.guests = guests.split(", ")
     event.save()
+
+
+def get_events():
+    events = Event().objects
+    for event in events:
+        print(event)
