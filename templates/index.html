@@ -5,10 +5,13 @@
     </head>
     <body>
         <form method="POST" action="/insert">
-            <input autofocus placeholder="Name" name="name" type="text" required />
+            <input autofocus placeholder="EventName" name="name" type="text" required />
+<!--            <input placeholder="Date" name="location" type="text"/>-->
+            <input type="date" placeholder="myDate" name="date">
             <input  placeholder="Time" name="time" type="datetime"/>
             <input placeholder="Length" name="length" type="number" required/>
             <input placeholder="Location" name="location" type="text"/>
+            <input placeholder="Guests" name="guests" type="text"/>
             <input type="submit"/>
         </form>
     </body>

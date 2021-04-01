@@ -6,6 +6,7 @@ class Event(db.Document):
 
     event_id = db.ObjectIdField()
     name = db.StringField(required=True)
+    event_date = db.StringField()
     event_time = db.StringField()
     length = db.FloatField(required=True)
     location = db.StringField()

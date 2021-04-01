@@ -11,6 +11,7 @@ def create_event(name, time, length, location, guests):
 
     event = Event()
     event.name = name
+    event.event_date
     event.event_time = time
     event.length = int(length)
     event.location = location
