@@ -19,7 +19,9 @@ def add():
         return render_template('add.html')
     elif request.method == 'POST':
 
-        if request.form.get("sub_exists3") == "yes":
+        if request.form.get("sub_exists3") == "yes" and request.form.get("sub_exists2") == "yes" and \
+                request.form.get("sub_exists1") == "yes":
+
             form = request.form
             con.create_event(form.get('name'),
                              form.get('date'),
@@ -44,10 +46,9 @@ def add():
                                                    form.get("sub_time3"),
                                                    form.get("sub_length3"),
                                                    form.get("sub_location3"),
-                                                   form.get("sub_guests3"))
-                              ])
+                                                   form.get("sub_guests3"))])
 
-        elif request.form.get("sub_exists2") == "yes":
+        elif request.form.get("sub_exists2") == "yes" and request.form.get("sub_exists1") == "yes":
             form = request.form
             con.create_event(form.get('name'),
                              form.get('date'),
@@ -68,7 +69,7 @@ def add():
                                                    form.get("sub_location2"),
                                                    form.get("sub_guests2"))])
 
-        if request.form.get("sub_exists1") == "yes":
+        elif request.form.get("sub_exists1") == "yes":
             form = request.form
             con.create_event(form.get('name'),
                              form.get('date'),
