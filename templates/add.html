@@ -6,17 +6,99 @@
 
 {% block body %}
 
-    <form method="POST" action="/add">
-        <input autofocus placeholder="EventName" name="name" type="text" required />
-        <input type="date" placeholder="myDate" name="date">
+<div>
+    <form id="main" method="POST" action="/add">
+        <input autofocus placeholder="Event name" name="name" type="text" required/>
+        <input type="date" placeholder="Date" name="date">
         <input placeholder="Time" name="time" type="time"/>
         <input placeholder="Length" name="length" type="number" required/>
         <input placeholder="Location" name="location" type="text" required/>
         <input placeholder="Guests" name="guests" type="text"/>
-        <input type="submit"/>
     </form>
+</div>
+
+<div id="subform"></div>
+
+<div>
+    <input id="addsub" type="button" value="Add a sub event" onclick="add_sub_event()">
+    <input type="button" value="Submit" onclick="submitForms()"/>
+</div>
+
 
 <br>
+<br>
+<br>
 
-<button type="button" onclick="location.href='/events'"> See all events </button>
+<button type="button" onclick="location.href='/events'"> See all events</button>
+
+<script>
+
+    function submitForms() {
+        document.getElementById("main").submit();
+    }
+
+    function add_sub_event() {
+
+        const form = document.getElementById("main")
+        const br = document.createElement("br");
+
+        const sub_exists = document.createElement("input")
+        sub_exists.setAttribute("type", "hidden")
+        sub_exists.setAttribute("name", "sub_exists")
+        sub_exists.setAttribute("value", "yes")
+
+        const sub_name = document.createElement("input");
+        sub_name.setAttribute("type", "text");
+        sub_name.setAttribute("name", "sub_name");
+        sub_name.setAttribute("placeholder", "Event Name");
+
+        const sub_date = document.createElement("input");
+        sub_date.setAttribute("type", "date");
+        sub_date.setAttribute("name", "sub_date");
+        sub_date.setAttribute("placeholder", "Date");
+
+        const sub_time = document.createElement("input");
+        sub_time.setAttribute("type", "time");
+        sub_time.setAttribute("name", "sub_time");
+        sub_time.setAttribute("placeholder", "Time");
+
+        const sub_length = document.createElement("input");
+        sub_length.setAttribute("type", "number");
+        sub_length.setAttribute("name", "sub_length");
+        sub_length.setAttribute("placeholder", "Length");
+
+        const sub_location = document.createElement("input");
+        sub_location.setAttribute("type", "text");
+        sub_location.setAttribute("name", "sub_location");
+        sub_location.setAttribute("placeholder", "Location");
+
+        const sub_guests = document.createElement("input");
+        sub_guests.setAttribute("type", "text");
+        sub_guests.setAttribute("name", "sub_guests");
+        sub_guests.setAttribute("placeholder", "Guests");
+
+        form.appendChild(sub_exists)
+        form.appendChild(br.cloneNode())
+        form.appendChild(sub_name);
+        form.appendChild(sub_date);
+        form.appendChild(sub_time);
+        form.appendChild(sub_length);
+        form.appendChild(sub_location);
+        form.appendChild(sub_guests);
+
+        document.getElementById("subform").appendChild(form);
+        document.getElementById("addsub").style.display = "none";
+    }
+
+</script>
+
 {% endblock %}
+
+<div id="sub" style="display: none">
+    <input placeholder="EventName" name="sub_name" type="text"/>
+    <input type="date" placeholder="Date" name="sub_date">
+    <input type="time" placeholder="Time" name="sub_time"/>
+    <input type="number" placeholder="Length" name="sub_length"/>
+    <input type="text" placeholder="Location" name="sub_location"/>
+    <input type="text" placeholder="Guests" name="sub_guests"/>
+</div>

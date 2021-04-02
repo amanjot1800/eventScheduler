@@ -1,29 +1,18 @@
 from event import Event
+from sub_event import SubEvent
 import mongoengine as db
+import controller
 
-print("connecting...")
+
 def mongo_setup():
-    CON_URI = "mongodb+srv://admin:databaseprojectadmin@databaseproject.xy2o1.mongodb.net/event_scheduler"
-    db.connect(host=CON_URI)
+    print("connecting...")
+    uri = "mongodb+srv://admin:databaseprojectadmin@databaseproject.xy2o1.mongodb.net/event_scheduler"
+    db.connect(host=uri)
 
 
-def create_event(name, date, time, length, location, guests):
-
-    event = Event()
-    event.name = name
-    event.event_date = date
-    event.event_time = time
-    event.length = int(length)
-    event.location = location
-    event.guests = guests.split(", ")
-    event.save()
-
-
-def get_events():
-    for event in Event.objects:
-        print(event.name, " / ", event.location, " / ", event.event_time)
-        print
+def start():
+    controller.create_event("Embeded event", "2020-12-17", "21:00", 2, "Dreams", "Singh, Dabb, Amanjot", None)
 
 
 mongo_setup()
-get_events()
+start()
