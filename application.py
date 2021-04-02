@@ -7,7 +7,7 @@ app = Flask(__name__)
 db = MongoEngine()
 print("connecting to database...")
 app.config['MONGODB_SETTINGS'] = {
-    'db': 'events',
+    'db': 'event',
     'host': 'mongodb+srv://admin:databaseprojectadmin@databaseproject.xy2o1.mongodb.net/event_scheduler'
 }
 db.init_app(app)

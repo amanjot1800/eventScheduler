@@ -11,7 +11,8 @@ def mongo_setup():
 
 
 def start():
-    controller.create_event("Embeded event", "2020-12-17", "21:00", 2, "Dreams", "Singh, Dabb, Amanjot", None)
+    controller.create_event("Embeded event", "2020-12-17", "21:00", "2", "Dreams", "Singh, Dabb, Amanjot",
+                            [controller.create_sub_event("111", "111", "111", "111", "111", "111")])
 
 
 mongo_setup()
