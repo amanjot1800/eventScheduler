@@ -101,15 +101,12 @@ def add():
 def show_events():
     return render_template('events.html', events=Event.objects)
 
-@app.route('/delete/<name>', methods=['GET','DELETE'])
-def delete_event(name):
-    print("In delete method",name)
-    events = Event.objects(name=name)
-    for event in events:
-      event.delete()
-    
-    return render_template('events.html', events=Event.objects)
 
+@app.route('/delete/<id>')
+def delete(id):
+    event = Event.objects.get(id=id)
+    event.delete()
+    return redirect(url_for('show_events'))
 
 
 if __name__ == "__main__":
