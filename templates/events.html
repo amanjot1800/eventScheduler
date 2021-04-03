@@ -18,6 +18,7 @@
             <th>Duration</th>
             <th>Location</th>
             <th>Guests</th>
+            <th>Delete</th>
         </tr>
         {% for event in events %}
             <tr>
@@ -27,7 +28,10 @@
                 <td>{{ event.length }}</td>
                 <td>{{ event.location }}</td>
                 <td>{{ event.guests }}</td>
-            </tr>
+        
+                <td><a href="{{url_for('delete_event',name=event.name)}}"> Delete </a></td>
+                   
+                </tr>
         {% endfor %}
     </table>
     {% endif %}
